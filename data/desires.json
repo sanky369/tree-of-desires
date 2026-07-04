@@ -1,0 +1,2667 @@
+{
+  "_meta": {
+    "description": "4-layer ontology of human desires. Layer 0 = primal roots, Layer 1 = basic desires, Layer 2 = functional jobs, Layer 3 = observed behaviors. Edges are derived from each node's `parents` array (parent -> child).",
+    "sources": [
+      "Layer 0: 'Life-Force 8' — Drew Eric Whitman, Cashvertising (2008); cross-checked against Kenrick, Griskevicius, Neuberg & Schaller, 'Renovating the Pyramid of Needs' / Fundamental Social Motives framework (2010). Two extra roots (curiosity, autonomy) added per Kenrick/Reiss because pure LF8 under-covers cognition and agency.",
+      "Layer 1: Steven Reiss, 'Who Am I? The 16 Basic Desires' (2000) — empirically factor-derived taxonomy of basic desires.",
+      "Layer 2: Clayton Christensen et al., 'Jobs to be Done' theory — recurring functional/emotional/social jobs people hire products for.",
+      "Layer 3: Observed modern behaviors and product categories (authors' compilation).",
+      "Layer 2 extensions: JTBD functional/emotional/social job triad (Ulwick/Strategyn; Christensen).",
+      "Layer 3 coverage informed by 2025-26 consumer-behavior research: wellness/sleep/mental-health growth, digital detox, fintech FoMO, experiential retail (McKinsey State of Consumer; Shopify Consumer Behavior Trends; Global Banking & Finance Review 2025)."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "root-survival",
+      "label": "Survival & health",
+      "layer": 0,
+      "parents": [],
+      "description": "To stay alive and be healthy — the base drive underneath all others.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-food",
+      "label": "Enjoyment of food & drink",
+      "layer": 0,
+      "parents": [],
+      "description": "The pleasure and comfort of eating and drinking, beyond bare sustenance.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-safety",
+      "label": "Freedom from fear, pain & danger",
+      "layer": 0,
+      "parents": [],
+      "description": "Safety: avoiding threat, pain, loss and uncertainty.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-mating",
+      "label": "Sexual companionship / mating",
+      "layer": 0,
+      "parents": [],
+      "description": "Attraction, courtship and pair-bonding.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-comfort",
+      "label": "Comfortable living conditions / ease",
+      "layer": 0,
+      "parents": [],
+      "description": "Physical comfort and effort-minimisation — the drive toward ease.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-kin",
+      "label": "Care & protection of loved ones",
+      "layer": 0,
+      "parents": [],
+      "description": "Kin care: protecting and providing for family and loved ones.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-belonging",
+      "label": "Social approval & belonging",
+      "layer": 0,
+      "parents": [],
+      "description": "To be accepted, approved of, and included by the group.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-status",
+      "label": "Status, superiority & winning",
+      "layer": 0,
+      "parents": [],
+      "description": "To rank above others, win, and be seen as superior.",
+      "framework": "Life-Force 8"
+    },
+    {
+      "id": "root-curiosity",
+      "label": "Curiosity & understanding",
+      "layer": 0,
+      "parents": [],
+      "description": "To know, learn, and make sense of the world.",
+      "framework": "Kenrick/Reiss extension"
+    },
+    {
+      "id": "root-autonomy",
+      "label": "Autonomy, control & competence",
+      "layer": 0,
+      "parents": [],
+      "description": "Self-reliance, mastery and agency over one's own life.",
+      "framework": "Kenrick/Reiss extension"
+    },
+    {
+      "id": "reiss-power",
+      "label": "Power",
+      "layer": 1,
+      "parents": [
+        "root-status",
+        "root-autonomy"
+      ],
+      "description": "Desire to influence, lead, and achieve — will to competence and dominance.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-independence",
+      "label": "Independence",
+      "layer": 1,
+      "parents": [
+        "root-autonomy"
+      ],
+      "description": "Desire for self-reliance and freedom from dependence on others.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-curiosity",
+      "label": "Curiosity",
+      "layer": 1,
+      "parents": [
+        "root-curiosity"
+      ],
+      "description": "Desire for knowledge, exploration and understanding.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-acceptance",
+      "label": "Acceptance",
+      "layer": 1,
+      "parents": [
+        "root-belonging"
+      ],
+      "description": "Desire for approval and to avoid criticism or rejection.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-order",
+      "label": "Order",
+      "layer": 1,
+      "parents": [
+        "root-safety",
+        "root-comfort"
+      ],
+      "description": "Desire for structure, predictability and organisation.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-saving",
+      "label": "Saving",
+      "layer": 1,
+      "parents": [
+        "root-survival",
+        "root-safety"
+      ],
+      "description": "Desire to collect, hoard and conserve resources.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-honor",
+      "label": "Honor",
+      "layer": 1,
+      "parents": [
+        "root-belonging",
+        "root-status"
+      ],
+      "description": "Desire to be loyal to one's group, code and heritage.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-idealism",
+      "label": "Idealism",
+      "layer": 1,
+      "parents": [
+        "root-kin",
+        "root-belonging"
+      ],
+      "description": "Desire for social justice and to improve the world.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-social-contact",
+      "label": "Social Contact",
+      "layer": 1,
+      "parents": [
+        "root-belonging"
+      ],
+      "description": "Desire for peer companionship, play and connection.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-family",
+      "label": "Family",
+      "layer": 1,
+      "parents": [
+        "root-kin"
+      ],
+      "description": "Desire to raise and care for one's own children and kin.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-status",
+      "label": "Status",
+      "layer": 1,
+      "parents": [
+        "root-status"
+      ],
+      "description": "Desire for prestige, wealth signals and social standing.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-vengeance",
+      "label": "Vengeance",
+      "layer": 1,
+      "parents": [
+        "root-status",
+        "root-safety"
+      ],
+      "description": "Desire to compete, get even and win against rivals.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-romance",
+      "label": "Romance",
+      "layer": 1,
+      "parents": [
+        "root-mating"
+      ],
+      "description": "Desire for sex, beauty and courtship.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-eating",
+      "label": "Eating",
+      "layer": 1,
+      "parents": [
+        "root-food",
+        "root-survival"
+      ],
+      "description": "Desire for food — both sustenance and pleasure.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-physical-activity",
+      "label": "Physical Activity",
+      "layer": 1,
+      "parents": [
+        "root-survival"
+      ],
+      "description": "Desire for exercise and bodily vitality.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "reiss-tranquility",
+      "label": "Tranquility",
+      "layer": 1,
+      "parents": [
+        "root-safety",
+        "root-comfort"
+      ],
+      "description": "Desire for emotional calm and freedom from anxiety.",
+      "framework": "Reiss"
+    },
+    {
+      "id": "job-save-time",
+      "label": "Save time",
+      "layer": 2,
+      "parents": [
+        "reiss-order",
+        "reiss-independence"
+      ],
+      "description": "Get the same outcome in less time; reclaim hours for what matters.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-reduce-effort",
+      "label": "Reduce effort",
+      "layer": 2,
+      "parents": [
+        "reiss-tranquility",
+        "reiss-independence"
+      ],
+      "description": "Make hard or tedious things easy; outsource friction.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-avoid-loss",
+      "label": "Avoid loss & risk",
+      "layer": 2,
+      "parents": [
+        "reiss-saving",
+        "reiss-tranquility"
+      ],
+      "description": "Not lose money, data, opportunities or face; de-risk decisions.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-gain-competence",
+      "label": "Gain competence",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-curiosity"
+      ],
+      "description": "Acquire skills and mastery; get measurably better at something.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-express-identity",
+      "label": "Express identity",
+      "layer": 2,
+      "parents": [
+        "reiss-status",
+        "reiss-independence"
+      ],
+      "description": "Signal who I am (or want to be) through what I use, wear and share.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-reduce-anxiety",
+      "label": "Reduce anxiety",
+      "layer": 2,
+      "parents": [
+        "reiss-tranquility",
+        "reiss-order"
+      ],
+      "description": "Quiet the mind; convert vague dread into felt control or calm.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-connect",
+      "label": "Connect with others",
+      "layer": 2,
+      "parents": [
+        "reiss-social-contact",
+        "reiss-family"
+      ],
+      "description": "Maintain and deepen relationships; feel less alone.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-relieve-boredom",
+      "label": "Relieve boredom",
+      "layer": 2,
+      "parents": [
+        "reiss-curiosity",
+        "reiss-physical-activity"
+      ],
+      "description": "Fill dead time with stimulation and novelty.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-look-good",
+      "label": "Look good to others",
+      "layer": 2,
+      "parents": [
+        "reiss-status",
+        "reiss-acceptance"
+      ],
+      "description": "Manage impressions; be perceived as attractive, smart or successful.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-feel-in-control",
+      "label": "Feel in control",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-order",
+        "reiss-independence"
+      ],
+      "description": "See, measure and steer one's own life, money, health or work.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-belong-tribe",
+      "label": "Belong to a tribe",
+      "layer": 2,
+      "parents": [
+        "reiss-acceptance",
+        "reiss-social-contact",
+        "reiss-honor"
+      ],
+      "description": "Be a recognised member of a group with shared identity and codes.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-find-meaning",
+      "label": "Find meaning",
+      "layer": 2,
+      "parents": [
+        "reiss-idealism",
+        "reiss-honor"
+      ],
+      "description": "Feel that one's time, work and story matter beyond oneself.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-save-money",
+      "label": "Save money",
+      "layer": 2,
+      "parents": [
+        "reiss-saving"
+      ],
+      "description": "Get the same value for less; keep more of what one earns.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-feel-safe",
+      "label": "Feel safe",
+      "layer": 2,
+      "parents": [
+        "reiss-tranquility",
+        "reiss-order",
+        "reiss-saving"
+      ],
+      "description": "Protect body, home, family and data from threat.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-be-entertained",
+      "label": "Be entertained",
+      "layer": 2,
+      "parents": [
+        "reiss-curiosity",
+        "reiss-tranquility"
+      ],
+      "description": "Experience stories, play and spectacle; escape pleasantly.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-find-partner",
+      "label": "Find a partner",
+      "layer": 2,
+      "parents": [
+        "reiss-romance"
+      ],
+      "description": "Meet, attract and choose a romantic or sexual partner.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-nourish",
+      "label": "Eat well & enjoyably",
+      "layer": 2,
+      "parents": [
+        "reiss-eating"
+      ],
+      "description": "Get tasty, convenient, satisfying food and drink.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-stay-healthy",
+      "label": "Stay healthy & fit",
+      "layer": 2,
+      "parents": [
+        "reiss-physical-activity",
+        "reiss-eating",
+        "reiss-tranquility"
+      ],
+      "description": "Maintain and improve the body: fitness, sleep, longevity.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-care-for-others",
+      "label": "Care for others",
+      "layer": 2,
+      "parents": [
+        "reiss-family",
+        "reiss-idealism"
+      ],
+      "description": "Protect, provide for and nurture the people (and pets) one loves.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-get-ahead",
+      "label": "Get ahead & win",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-status",
+        "reiss-vengeance"
+      ],
+      "description": "Outperform rivals; advance in career, wealth or rank.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-feel-attractive",
+      "label": "Feel attractive",
+      "layer": 2,
+      "parents": [
+        "reiss-romance",
+        "reiss-acceptance",
+        "reiss-status"
+      ],
+      "description": "Look and feel desirable to others and to oneself.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-experience-awe",
+      "label": "Experience awe",
+      "layer": 2,
+      "parents": [
+        "reiss-curiosity",
+        "reiss-idealism"
+      ],
+      "description": "Feel wonder, beauty and inspiration beyond the everyday.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-remember-past",
+      "label": "Remember & preserve the past",
+      "layer": 2,
+      "parents": [
+        "reiss-family",
+        "reiss-honor",
+        "reiss-saving"
+      ],
+      "description": "Relive, record and hold on to meaningful moments and heritage.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-transcend",
+      "label": "Connect to something larger",
+      "layer": 2,
+      "parents": [
+        "reiss-idealism",
+        "reiss-tranquility"
+      ],
+      "description": "Feel part of something beyond the self: faith, nature, purpose.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-build-legacy",
+      "label": "Build a legacy",
+      "layer": 2,
+      "parents": [
+        "reiss-family",
+        "reiss-power",
+        "reiss-saving"
+      ],
+      "description": "Create lasting value and security that outlives the moment.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-recover-energy",
+      "label": "Rest & recover",
+      "layer": 2,
+      "parents": [
+        "reiss-tranquility",
+        "reiss-physical-activity"
+      ],
+      "description": "Restore depleted physical and mental energy.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-stay-informed",
+      "label": "Stay informed / not miss out",
+      "layer": 2,
+      "parents": [
+        "reiss-curiosity",
+        "reiss-acceptance",
+        "reiss-order"
+      ],
+      "description": "Track what is happening so nothing important (or social) is missed.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-give-back",
+      "label": "Give back",
+      "layer": 2,
+      "parents": [
+        "reiss-idealism",
+        "reiss-honor",
+        "reiss-social-contact"
+      ],
+      "description": "Contribute to strangers, causes and communities beyond kin.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-seek-thrill",
+      "label": "Feel excitement & thrill",
+      "layer": 2,
+      "parents": [
+        "reiss-physical-activity",
+        "reiss-curiosity",
+        "reiss-vengeance"
+      ],
+      "description": "Chase adrenaline, stakes, novelty and the rush of winning.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-simplify",
+      "label": "Simplify & declutter",
+      "layer": 2,
+      "parents": [
+        "reiss-order",
+        "reiss-tranquility",
+        "reiss-independence"
+      ],
+      "description": "Reduce possessions, choices and noise to regain calm and control.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-create",
+      "label": "Create & make things",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-curiosity",
+        "reiss-independence"
+      ],
+      "description": "Bring something of one's own into existence: art, code, craft, content.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-earn-income",
+      "label": "Earn a living",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-independence",
+        "reiss-saving"
+      ],
+      "description": "Generate income and economic security through work and enterprise.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-escape",
+      "label": "Escape & switch off",
+      "layer": 2,
+      "parents": [
+        "reiss-tranquility",
+        "reiss-curiosity"
+      ],
+      "description": "Step out of present stress into another world, story or state.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-feel-pleasure",
+      "label": "Feel sensory pleasure",
+      "layer": 2,
+      "parents": [
+        "reiss-romance",
+        "reiss-tranquility",
+        "reiss-eating"
+      ],
+      "description": "Indulge the senses: taste, scent, touch, sound, beauty.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-decide-confidently",
+      "label": "Choose with confidence",
+      "layer": 2,
+      "parents": [
+        "reiss-order",
+        "reiss-curiosity",
+        "reiss-tranquility"
+      ],
+      "description": "Compare options and commit without fear of choosing wrong.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-guard-reputation",
+      "label": "Guard reputation & privacy",
+      "layer": 2,
+      "parents": [
+        "reiss-acceptance",
+        "reiss-status",
+        "reiss-tranquility"
+      ],
+      "description": "Control what others (and systems) can see and say about you.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-share-knowledge",
+      "label": "Share knowledge & opinions",
+      "layer": 2,
+      "parents": [
+        "reiss-power",
+        "reiss-idealism",
+        "reiss-social-contact"
+      ],
+      "description": "Teach, answer, publish and be heard as someone who knows.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-coordinate",
+      "label": "Coordinate with others",
+      "layer": 2,
+      "parents": [
+        "reiss-order",
+        "reiss-social-contact"
+      ],
+      "description": "Sync schedules, tasks and logistics across a household or team.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "bx-doomscrolling",
+      "label": "Doomscrolling",
+      "layer": 3,
+      "parents": [
+        "job-relieve-boredom",
+        "job-be-entertained",
+        "job-reduce-anxiety",
+        "job-stay-informed",
+        "job-escape"
+      ],
+      "description": "Compulsively scrolling feeds of alarming or novel content.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-food-delivery",
+      "label": "Food delivery apps",
+      "layer": 3,
+      "parents": [
+        "job-reduce-effort",
+        "job-nourish",
+        "job-save-time"
+      ],
+      "description": "Ordering restaurant meals to the door on demand.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-dating-apps",
+      "label": "Dating apps",
+      "layer": 3,
+      "parents": [
+        "job-find-partner",
+        "job-connect"
+      ],
+      "description": "Swipe-based matching and messaging to find partners.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-fitness-trackers",
+      "label": "Fitness trackers",
+      "layer": 3,
+      "parents": [
+        "job-stay-healthy",
+        "job-feel-in-control",
+        "job-gain-competence"
+      ],
+      "description": "Wearables quantifying steps, sleep, heart rate and workouts.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-luxury-goods",
+      "label": "Luxury goods",
+      "layer": 3,
+      "parents": [
+        "job-look-good",
+        "job-express-identity",
+        "job-feel-attractive"
+      ],
+      "description": "Buying premium brands primarily for what they signal.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-online-courses",
+      "label": "Online courses",
+      "layer": 3,
+      "parents": [
+        "job-gain-competence",
+        "job-get-ahead"
+      ],
+      "description": "Self-paced learning platforms and certifications.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-group-chats",
+      "label": "Group chats",
+      "layer": 3,
+      "parents": [
+        "job-connect",
+        "job-belong-tribe",
+        "job-coordinate"
+      ],
+      "description": "Persistent messaging circles of friends, family or teams.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-review-reading",
+      "label": "Review reading",
+      "layer": 3,
+      "parents": [
+        "job-avoid-loss",
+        "job-feel-safe",
+        "job-decide-confidently"
+      ],
+      "description": "Studying ratings and reviews before committing to a purchase.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-streaming-binges",
+      "label": "Streaming binges",
+      "layer": 3,
+      "parents": [
+        "job-be-entertained",
+        "job-relieve-boredom",
+        "job-escape"
+      ],
+      "description": "Watching many episodes back-to-back on streaming platforms.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-productivity-apps",
+      "label": "Productivity apps",
+      "layer": 3,
+      "parents": [
+        "job-save-time",
+        "job-feel-in-control",
+        "job-get-ahead",
+        "job-coordinate"
+      ],
+      "description": "To-do lists, notes and planners promising output and order.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-bnpl",
+      "label": "Buy-now-pay-later",
+      "layer": 3,
+      "parents": [
+        "job-save-money",
+        "job-reduce-anxiety",
+        "job-look-good"
+      ],
+      "description": "Splitting purchases into instalments to soften the price.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-self-care-subs",
+      "label": "Self-care subscriptions",
+      "layer": 3,
+      "parents": [
+        "job-reduce-anxiety",
+        "job-stay-healthy",
+        "job-recover-energy",
+        "job-feel-attractive"
+      ],
+      "description": "Recurring wellness boxes, skincare and therapy-adjacent services.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-status-sneakers",
+      "label": "Status sneakers",
+      "layer": 3,
+      "parents": [
+        "job-look-good",
+        "job-belong-tribe",
+        "job-express-identity"
+      ],
+      "description": "Collecting and wearing hyped, limited-release footwear.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-ai-copilots",
+      "label": "AI copilots",
+      "layer": 3,
+      "parents": [
+        "job-save-time",
+        "job-gain-competence",
+        "job-reduce-effort"
+      ],
+      "description": "AI assistants that draft, code, summarise and automate work.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-meal-prep-kits",
+      "label": "Meal-prep kits",
+      "layer": 3,
+      "parents": [
+        "job-save-time",
+        "job-nourish",
+        "job-stay-healthy"
+      ],
+      "description": "Pre-portioned ingredient boxes with recipes delivered weekly.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-home-security",
+      "label": "Home security cams",
+      "layer": 3,
+      "parents": [
+        "job-feel-safe",
+        "job-care-for-others"
+      ],
+      "description": "Doorbell and indoor cameras watched from a phone.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-language-apps",
+      "label": "Language apps",
+      "layer": 3,
+      "parents": [
+        "job-gain-competence",
+        "job-relieve-boredom"
+      ],
+      "description": "Gamified daily-streak language learning.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-social-posting",
+      "label": "Social media posting",
+      "layer": 3,
+      "parents": [
+        "job-look-good",
+        "job-express-identity",
+        "job-connect",
+        "job-create"
+      ],
+      "description": "Publishing curated photos, takes and updates for an audience.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-influencer-following",
+      "label": "Influencer following",
+      "layer": 3,
+      "parents": [
+        "job-belong-tribe",
+        "job-be-entertained",
+        "job-stay-informed"
+      ],
+      "description": "Parasocial attachment to creators and their recommendations.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-online-gaming",
+      "label": "Online gaming",
+      "layer": 3,
+      "parents": [
+        "job-be-entertained",
+        "job-get-ahead",
+        "job-belong-tribe",
+        "job-gain-competence",
+        "job-seek-thrill"
+      ],
+      "description": "Competitive and social multiplayer play, ranks and seasons.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-meditation-apps",
+      "label": "Meditation apps",
+      "layer": 3,
+      "parents": [
+        "job-reduce-anxiety",
+        "job-find-meaning",
+        "job-transcend"
+      ],
+      "description": "Guided mindfulness sessions and sleep stories on subscription.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-true-crime",
+      "label": "True-crime consumption",
+      "layer": 3,
+      "parents": [
+        "job-be-entertained",
+        "job-feel-safe",
+        "job-stay-informed"
+      ],
+      "description": "Podcasts and documentaries rehearsing danger from a safe distance.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-deal-hunting",
+      "label": "Deal hunting & couponing",
+      "layer": 3,
+      "parents": [
+        "job-save-money",
+        "job-avoid-loss",
+        "job-get-ahead"
+      ],
+      "description": "Chasing discounts, cashback and price-drop alerts.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-sports-betting",
+      "label": "Sports betting",
+      "layer": 3,
+      "parents": [
+        "job-get-ahead",
+        "job-be-entertained",
+        "job-seek-thrill"
+      ],
+      "description": "Wagering on games for stakes-fueled excitement and wins.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-ancestry-dna",
+      "label": "Ancestry DNA kits",
+      "layer": 3,
+      "parents": [
+        "job-find-meaning",
+        "job-belong-tribe",
+        "job-remember-past"
+      ],
+      "description": "Mail-in genetics to map heritage and relatives.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-smart-home",
+      "label": "Smart-home devices",
+      "layer": 3,
+      "parents": [
+        "job-reduce-effort",
+        "job-feel-in-control",
+        "job-simplify"
+      ],
+      "description": "Voice assistants, smart lights and thermostats automating the house.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-ride-hailing",
+      "label": "Ride-hailing",
+      "layer": 3,
+      "parents": [
+        "job-save-time",
+        "job-reduce-effort"
+      ],
+      "description": "On-demand cars summoned by app.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-fast-fashion",
+      "label": "Fast fashion",
+      "layer": 3,
+      "parents": [
+        "job-look-good",
+        "job-save-money",
+        "job-express-identity"
+      ],
+      "description": "Cheap, rapid trend-cycle clothing hauls.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-pet-parenting",
+      "label": "Pet parenting",
+      "layer": 3,
+      "parents": [
+        "job-care-for-others",
+        "job-connect",
+        "job-give-back"
+      ],
+      "description": "Premium food, healthcare and treats for pets treated as family.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-journaling-apps",
+      "label": "Journaling apps",
+      "layer": 3,
+      "parents": [
+        "job-reduce-anxiety",
+        "job-find-meaning",
+        "job-feel-in-control",
+        "job-remember-past"
+      ],
+      "description": "Digital diaries, mood tracking and guided reflection.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-crypto-trading",
+      "label": "Crypto trading",
+      "layer": 3,
+      "parents": [
+        "job-get-ahead",
+        "job-be-entertained",
+        "job-seek-thrill",
+        "job-stay-informed"
+      ],
+      "description": "Speculative retail trading of volatile digital assets.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-news-alerts",
+      "label": "News alerts",
+      "layer": 3,
+      "parents": [
+        "job-feel-safe",
+        "job-avoid-loss",
+        "job-stay-informed"
+      ],
+      "description": "Push notifications keeping one perpetually informed of threats and change.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-diy-tutorials",
+      "label": "DIY tutorial videos",
+      "layer": 3,
+      "parents": [
+        "job-gain-competence",
+        "job-save-money"
+      ],
+      "description": "Learning repairs, recipes and skills from free video guides.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-subscription-boxes",
+      "label": "Subscription boxes",
+      "layer": 3,
+      "parents": [
+        "job-be-entertained",
+        "job-reduce-effort"
+      ],
+      "description": "Curated surprise products arriving monthly.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-linkedin-networking",
+      "label": "LinkedIn networking",
+      "layer": 3,
+      "parents": [
+        "job-get-ahead",
+        "job-look-good",
+        "job-connect"
+      ],
+      "description": "Professional self-promotion, connection farming and job signalling.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-short-video",
+      "label": "Short-video scrolling",
+      "parents": [
+        "job-be-entertained",
+        "job-relieve-boredom",
+        "job-stay-informed"
+      ],
+      "layer": 3,
+      "description": "Endless TikTok/Reels feeds of algorithmic micro-entertainment.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-memes-sharing",
+      "label": "Meme sharing",
+      "parents": [
+        "job-connect",
+        "job-be-entertained",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Trading in-jokes and reaction images as social glue.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-video-calls",
+      "label": "Video calling",
+      "parents": [
+        "job-connect",
+        "job-care-for-others"
+      ],
+      "layer": 3,
+      "description": "Face-to-face contact across distance with family and friends.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-online-communities",
+      "label": "Online communities",
+      "parents": [
+        "job-belong-tribe",
+        "job-stay-informed",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Reddit, Discord and forums organized around shared identities.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-lurking",
+      "label": "Feed lurking",
+      "parents": [
+        "job-stay-informed",
+        "job-relieve-boredom"
+      ],
+      "layer": 3,
+      "description": "Watching everyone else's lives without ever posting.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-status-flexing",
+      "label": "Status flexing",
+      "parents": [
+        "job-look-good",
+        "job-get-ahead",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Posting wins, purchases and humblebrags for an audience.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-couple-posting",
+      "label": "Couple posting",
+      "parents": [
+        "job-look-good",
+        "job-connect",
+        "job-find-partner"
+      ],
+      "layer": 3,
+      "description": "Broadcasting the relationship as part of one's public identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-notifications-checking",
+      "label": "Compulsive phone checking",
+      "parents": [
+        "job-stay-informed",
+        "job-connect",
+        "job-relieve-boredom"
+      ],
+      "layer": 3,
+      "description": "Reflexively checking the phone for anything new.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-ai-companions",
+      "label": "AI companions",
+      "parents": [
+        "job-connect",
+        "job-reduce-anxiety",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Chatting with AI personas for company, comfort and play.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-nightlife",
+      "label": "Nightlife & clubbing",
+      "parents": [
+        "job-connect",
+        "job-find-partner",
+        "job-seek-thrill"
+      ],
+      "layer": 3,
+      "description": "Bars, clubs and parties as courtship and bonding arenas.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-beauty-filters",
+      "label": "Beauty filters",
+      "parents": [
+        "job-feel-attractive",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Augmenting selfies toward an idealized face.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-skincare-routines",
+      "label": "Skincare routines",
+      "parents": [
+        "job-feel-attractive",
+        "job-stay-healthy",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Multi-step regimens promising visible self-improvement.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-cosmetic-procedures",
+      "label": "Cosmetic procedures",
+      "parents": [
+        "job-feel-attractive",
+        "job-look-good",
+        "job-get-ahead"
+      ],
+      "layer": 3,
+      "description": "Injectables and surgery to engineer appearance.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-gym-membership",
+      "label": "Gym memberships",
+      "parents": [
+        "job-stay-healthy",
+        "job-look-good",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Structured strength and fitness training.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-running-clubs",
+      "label": "Running clubs",
+      "parents": [
+        "job-stay-healthy",
+        "job-belong-tribe",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Group runs blending exercise with community.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-supplements",
+      "label": "Supplement stacks",
+      "parents": [
+        "job-stay-healthy",
+        "job-feel-in-control",
+        "job-avoid-loss"
+      ],
+      "layer": 3,
+      "description": "Pills and powders hedging against decline.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-sleep-tracking",
+      "label": "Sleep tech",
+      "parents": [
+        "job-recover-energy",
+        "job-feel-in-control",
+        "job-stay-healthy"
+      ],
+      "layer": 3,
+      "description": "Rings and apps quantifying rest and recovery.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-biohacking",
+      "label": "Biohacking",
+      "parents": [
+        "job-stay-healthy",
+        "job-feel-in-control",
+        "job-get-ahead",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Optimizing the body like a system to outperform.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-therapy-apps",
+      "label": "Therapy & coaching apps",
+      "parents": [
+        "job-reduce-anxiety",
+        "job-gain-competence",
+        "job-find-meaning"
+      ],
+      "layer": 3,
+      "description": "On-demand mental-health support and self-work.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-diet-programs",
+      "label": "Diet programs",
+      "parents": [
+        "job-stay-healthy",
+        "job-look-good",
+        "job-feel-in-control"
+      ],
+      "layer": 3,
+      "description": "Structured eating regimes promising transformation.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-cold-plunge",
+      "label": "Cold plunges & saunas",
+      "parents": [
+        "job-stay-healthy",
+        "job-seek-thrill",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Deliberate discomfort as wellness ritual and identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-yoga-pilates",
+      "label": "Yoga & pilates",
+      "parents": [
+        "job-stay-healthy",
+        "job-reduce-anxiety",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Mind-body practice as exercise and calm.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-white-noise",
+      "label": "Sleep sound apps",
+      "parents": [
+        "job-recover-energy",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Engineered soundscapes to switch the mind off.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-digital-detox",
+      "label": "Digital detoxing",
+      "parents": [
+        "job-simplify",
+        "job-reduce-anxiety",
+        "job-feel-in-control"
+      ],
+      "layer": 3,
+      "description": "Deliberate abstinence from screens and feeds.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-food-posting",
+      "label": "Food posting",
+      "parents": [
+        "job-nourish",
+        "job-look-good",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Photographing meals as taste and lifestyle signal.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-specialty-coffee",
+      "label": "Specialty coffee",
+      "parents": [
+        "job-nourish",
+        "job-express-identity",
+        "job-belong-tribe",
+        "job-feel-pleasure"
+      ],
+      "layer": 3,
+      "description": "Third-wave brews as daily ritual and connoisseurship.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-craft-drinks",
+      "label": "Craft drinks culture",
+      "parents": [
+        "job-nourish",
+        "job-belong-tribe",
+        "job-express-identity",
+        "job-feel-pleasure"
+      ],
+      "layer": 3,
+      "description": "Craft beer, natural wine and cocktails as identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-comfort-snacking",
+      "label": "Comfort eating",
+      "parents": [
+        "job-nourish",
+        "job-reduce-anxiety",
+        "job-recover-energy",
+        "job-feel-pleasure"
+      ],
+      "layer": 3,
+      "description": "Eating for mood regulation, not hunger.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-foodie-hunting",
+      "label": "Restaurant hunting",
+      "parents": [
+        "job-nourish",
+        "job-be-entertained",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Chasing new openings and hidden gems as sport.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-home-baking",
+      "label": "Home baking & cooking",
+      "parents": [
+        "job-nourish",
+        "job-gain-competence",
+        "job-care-for-others",
+        "job-create"
+      ],
+      "layer": 3,
+      "description": "Feeding people as craft and affection.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-investing-apps",
+      "label": "Retail investing",
+      "parents": [
+        "job-get-ahead",
+        "job-feel-in-control",
+        "job-build-legacy",
+        "job-earn-income"
+      ],
+      "layer": 3,
+      "description": "Trading and index funds through slick brokerage apps.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-budgeting-apps",
+      "label": "Budgeting apps",
+      "parents": [
+        "job-save-money",
+        "job-feel-in-control",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Turning money anxiety into dashboards and categories.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-side-hustles",
+      "label": "Side hustles",
+      "parents": [
+        "job-get-ahead",
+        "job-feel-in-control",
+        "job-express-identity",
+        "job-earn-income"
+      ],
+      "layer": 3,
+      "description": "Extra income streams as ambition and safety net.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-lottery",
+      "label": "Lottery & scratchers",
+      "parents": [
+        "job-get-ahead",
+        "job-be-entertained",
+        "job-seek-thrill"
+      ],
+      "layer": 3,
+      "description": "Cheap tickets to an imagined other life.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-insurance-buying",
+      "label": "Insurance buying",
+      "parents": [
+        "job-avoid-loss",
+        "job-feel-safe",
+        "job-care-for-others"
+      ],
+      "layer": 3,
+      "description": "Paying to cap catastrophe for self and family.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-zillow-scrolling",
+      "label": "Property browsing",
+      "parents": [
+        "job-be-entertained",
+        "job-get-ahead",
+        "job-build-legacy"
+      ],
+      "layer": 3,
+      "description": "Fantasy-shopping homes and imagined futures.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-points-maxing",
+      "label": "Points & miles maxing",
+      "parents": [
+        "job-save-money",
+        "job-get-ahead",
+        "job-feel-in-control"
+      ],
+      "layer": 3,
+      "description": "Gaming loyalty programs as an optimization hobby.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-impulse-shopping",
+      "label": "Impulse shopping",
+      "parents": [
+        "job-reduce-anxiety",
+        "job-be-entertained",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Retail therapy and haul culture.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-thrifting",
+      "label": "Thrifting & secondhand",
+      "parents": [
+        "job-save-money",
+        "job-express-identity",
+        "job-find-meaning"
+      ],
+      "layer": 3,
+      "description": "Hunting unique finds with a virtuous story.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-unboxing-videos",
+      "label": "Unboxing videos",
+      "parents": [
+        "job-be-entertained",
+        "job-relieve-boredom",
+        "job-stay-informed"
+      ],
+      "layer": 3,
+      "description": "Vicarious acquisition through others' packages.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-limited-drops",
+      "label": "Limited drops & FOMO buys",
+      "parents": [
+        "job-belong-tribe",
+        "job-get-ahead",
+        "job-seek-thrill"
+      ],
+      "layer": 3,
+      "description": "Scarcity releases that reward speed and insiderness.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-eco-products",
+      "label": "Sustainable products",
+      "parents": [
+        "job-find-meaning",
+        "job-give-back",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Consumption aligned with environmental values.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-podcasts",
+      "label": "Podcast listening",
+      "parents": [
+        "job-stay-informed",
+        "job-gain-competence",
+        "job-relieve-boredom"
+      ],
+      "layer": 3,
+      "description": "Long-form talk filling commutes and chores.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-audiobooks",
+      "label": "Audiobooks",
+      "parents": [
+        "job-gain-competence",
+        "job-be-entertained",
+        "job-save-time"
+      ],
+      "layer": 3,
+      "description": "Reading converted into multitaskable audio.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-live-concerts",
+      "label": "Live concerts",
+      "parents": [
+        "job-experience-awe",
+        "job-belong-tribe",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Communal peak experiences around music.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-festivals",
+      "label": "Festivals",
+      "parents": [
+        "job-belong-tribe",
+        "job-seek-thrill",
+        "job-experience-awe"
+      ],
+      "layer": 3,
+      "description": "Multi-day gatherings as pilgrimage and play.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-fandom",
+      "label": "Fandom & stan culture",
+      "parents": [
+        "job-belong-tribe",
+        "job-express-identity",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Organized devotion to artists, teams and franchises.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-reality-tv",
+      "label": "Reality TV",
+      "parents": [
+        "job-be-entertained",
+        "job-stay-informed",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Parasocial drama that fuels shared gossip.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-anime-manga",
+      "label": "Anime & manga",
+      "parents": [
+        "job-be-entertained",
+        "job-belong-tribe",
+        "job-express-identity",
+        "job-escape"
+      ],
+      "layer": 3,
+      "description": "Deep story worlds with strong subculture identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-board-games",
+      "label": "Board-game nights",
+      "parents": [
+        "job-connect",
+        "job-be-entertained",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Analog play as structured social time.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-escape-rooms",
+      "label": "Escape rooms",
+      "parents": [
+        "job-seek-thrill",
+        "job-connect",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Puzzle adventures bought as shared experience.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-karaoke",
+      "label": "Karaoke",
+      "parents": [
+        "job-be-entertained",
+        "job-connect",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Performing for friends in a sanctioned spotlight.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-daily-puzzles",
+      "label": "Daily puzzles",
+      "parents": [
+        "job-relieve-boredom",
+        "job-belong-tribe",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Wordle-style rituals with shareable scores.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-gacha-lootboxes",
+      "label": "Gacha & loot boxes",
+      "parents": [
+        "job-seek-thrill",
+        "job-get-ahead",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Randomized rewards engineered for compulsion.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-esports-watching",
+      "label": "Esports watching",
+      "parents": [
+        "job-be-entertained",
+        "job-belong-tribe",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Spectating elite play as sport and study.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-casual-mobile-games",
+      "label": "Casual mobile games",
+      "parents": [
+        "job-relieve-boredom",
+        "job-be-entertained",
+        "job-reduce-anxiety",
+        "job-escape"
+      ],
+      "layer": 3,
+      "description": "Low-stakes puzzle loops for idle minutes.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-coding-bootcamps",
+      "label": "Bootcamps & upskilling",
+      "parents": [
+        "job-gain-competence",
+        "job-get-ahead",
+        "job-earn-income"
+      ],
+      "layer": 3,
+      "description": "Intensive reskilling toward better work.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-pkm-systems",
+      "label": "Second-brain note systems",
+      "parents": [
+        "job-feel-in-control",
+        "job-gain-competence",
+        "job-simplify"
+      ],
+      "layer": 3,
+      "description": "Elaborate personal knowledge bases promising clarity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-morning-routines",
+      "label": "Morning routines",
+      "parents": [
+        "job-feel-in-control",
+        "job-get-ahead",
+        "job-recover-energy"
+      ],
+      "layer": 3,
+      "description": "Ritualized starts optimized for discipline.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-hustle-content",
+      "label": "Hustle & productivity content",
+      "parents": [
+        "job-get-ahead",
+        "job-gain-competence",
+        "job-belong-tribe",
+        "job-earn-income"
+      ],
+      "layer": 3,
+      "description": "Consuming success formulas from productivity gurus.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-mentorship",
+      "label": "Mentorship seeking",
+      "parents": [
+        "job-gain-competence",
+        "job-get-ahead",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Borrowing judgment from those further ahead.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-home-reno-content",
+      "label": "Home renovation content",
+      "parents": [
+        "job-be-entertained",
+        "job-express-identity",
+        "job-build-legacy"
+      ],
+      "layer": 3,
+      "description": "Before-and-after fantasies of the perfected home.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-houseplants",
+      "label": "Houseplant keeping",
+      "parents": [
+        "job-care-for-others",
+        "job-express-identity",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Low-stakes nurture that greens the home.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-gardening",
+      "label": "Gardening",
+      "parents": [
+        "job-care-for-others",
+        "job-find-meaning",
+        "job-reduce-anxiety",
+        "job-stay-healthy"
+      ],
+      "layer": 3,
+      "description": "Growing things as patience, purpose and produce.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-decluttering",
+      "label": "Decluttering",
+      "parents": [
+        "job-simplify",
+        "job-reduce-anxiety",
+        "job-feel-in-control"
+      ],
+      "layer": 3,
+      "description": "Purging possessions to purge mental load.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-diy-projects",
+      "label": "DIY home projects",
+      "parents": [
+        "job-gain-competence",
+        "job-save-money",
+        "job-express-identity",
+        "job-create"
+      ],
+      "layer": 3,
+      "description": "Building and fixing as competence and pride.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-van-life",
+      "label": "Van life & tiny living",
+      "parents": [
+        "job-express-identity",
+        "job-find-meaning",
+        "job-simplify",
+        "job-seek-thrill",
+        "job-escape"
+      ],
+      "layer": 3,
+      "description": "Radical downsizing sold as freedom.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-bucket-lists",
+      "label": "Travel bucket lists",
+      "parents": [
+        "job-experience-awe",
+        "job-look-good",
+        "job-seek-thrill"
+      ],
+      "layer": 3,
+      "description": "Collecting destinations as life achievements.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-travel-photography",
+      "label": "Travel photography",
+      "parents": [
+        "job-look-good",
+        "job-remember-past",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Documenting journeys for memory and audience.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-resorts",
+      "label": "All-inclusive resorts",
+      "parents": [
+        "job-recover-energy",
+        "job-reduce-effort",
+        "job-nourish"
+      ],
+      "layer": 3,
+      "description": "Effortless, pre-paid restoration.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-adventure-sports",
+      "label": "Adventure sports",
+      "parents": [
+        "job-seek-thrill",
+        "job-gain-competence",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Climbing, surfing and diving for edge and identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-solo-travel",
+      "label": "Solo travel",
+      "parents": [
+        "job-express-identity",
+        "job-seek-thrill",
+        "job-find-meaning"
+      ],
+      "layer": 3,
+      "description": "Traveling alone as self-discovery and proof.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-baby-monitors",
+      "label": "Baby monitoring tech",
+      "parents": [
+        "job-care-for-others",
+        "job-feel-safe",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Sensors easing (and feeding) parental vigilance.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-parenting-forums",
+      "label": "Parenting forums",
+      "parents": [
+        "job-care-for-others",
+        "job-gain-competence",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Crowdsourced reassurance for raising kids.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-photo-books",
+      "label": "Family photo books",
+      "parents": [
+        "job-remember-past",
+        "job-care-for-others",
+        "job-build-legacy"
+      ],
+      "layer": 3,
+      "description": "Curating family memory into heirlooms.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-eldercare-apps",
+      "label": "Eldercare tools",
+      "parents": [
+        "job-care-for-others",
+        "job-reduce-anxiety",
+        "job-feel-safe"
+      ],
+      "layer": 3,
+      "description": "Coordinating and monitoring aging parents' wellbeing.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-vpn-privacy",
+      "label": "Privacy tools",
+      "parents": [
+        "job-feel-safe",
+        "job-feel-in-control",
+        "job-avoid-loss",
+        "job-guard-reputation"
+      ],
+      "layer": 3,
+      "description": "VPNs and blockers guarding data and identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-password-managers",
+      "label": "Password managers",
+      "parents": [
+        "job-feel-safe",
+        "job-simplify",
+        "job-avoid-loss",
+        "job-guard-reputation"
+      ],
+      "layer": 3,
+      "description": "Outsourcing digital lock-keeping.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-prepping",
+      "label": "Emergency prepping",
+      "parents": [
+        "job-feel-safe",
+        "job-feel-in-control",
+        "job-care-for-others"
+      ],
+      "layer": 3,
+      "description": "Stockpiling readiness against imagined collapse.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-self-defense",
+      "label": "Self-defense classes",
+      "parents": [
+        "job-feel-safe",
+        "job-gain-competence",
+        "job-feel-in-control"
+      ],
+      "layer": 3,
+      "description": "Training the body against threat.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-weather-checking",
+      "label": "Weather checking",
+      "parents": [
+        "job-feel-safe",
+        "job-feel-in-control",
+        "job-stay-informed"
+      ],
+      "layer": 3,
+      "description": "Ritual forecasting to pre-empt surprise.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-astrology-apps",
+      "label": "Astrology apps",
+      "parents": [
+        "job-find-meaning",
+        "job-reduce-anxiety",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Cosmic templates for self-story and reassurance.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-manifestation",
+      "label": "Manifestation & tarot",
+      "parents": [
+        "job-find-meaning",
+        "job-feel-in-control",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Rituals that convert uncertainty into agency.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-religious-services",
+      "label": "Religious services",
+      "parents": [
+        "job-transcend",
+        "job-belong-tribe",
+        "job-find-meaning"
+      ],
+      "layer": 3,
+      "description": "Congregational worship and its community.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-retreats",
+      "label": "Retreats & pilgrimages",
+      "parents": [
+        "job-transcend",
+        "job-experience-awe",
+        "job-recover-energy"
+      ],
+      "layer": 3,
+      "description": "Stepping out of ordinary life to reset the soul.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-volunteering",
+      "label": "Volunteering",
+      "parents": [
+        "job-give-back",
+        "job-find-meaning",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Donating time to causes and neighbors.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-charity-giving",
+      "label": "Charitable giving",
+      "parents": [
+        "job-give-back",
+        "job-find-meaning",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Donating money as values and signal.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-watch-collecting",
+      "label": "Watch collecting",
+      "parents": [
+        "job-look-good",
+        "job-express-identity",
+        "job-get-ahead"
+      ],
+      "layer": 3,
+      "description": "Mechanical status objects that hold value.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-art-collecting",
+      "label": "Art collecting",
+      "parents": [
+        "job-express-identity",
+        "job-get-ahead",
+        "job-experience-awe"
+      ],
+      "layer": 3,
+      "description": "Owning beauty as taste and asset.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-trading-cards",
+      "label": "Trading cards",
+      "parents": [
+        "job-remember-past",
+        "job-get-ahead",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Nostalgic collectibles turned speculative market.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-car-culture",
+      "label": "Car culture",
+      "parents": [
+        "job-express-identity",
+        "job-look-good",
+        "job-belong-tribe",
+        "job-seek-thrill"
+      ],
+      "layer": 3,
+      "description": "Vehicles as identity, craft and adrenaline.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-partisan-news",
+      "label": "Partisan news feeds",
+      "parents": [
+        "job-belong-tribe",
+        "job-stay-informed",
+        "job-get-ahead"
+      ],
+      "layer": 3,
+      "description": "Outrage media that confirms the team.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-activism",
+      "label": "Online activism",
+      "parents": [
+        "job-give-back",
+        "job-belong-tribe",
+        "job-find-meaning"
+      ],
+      "layer": 3,
+      "description": "Petitions, hashtags and mobilization.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-photo-hoarding",
+      "label": "Cloud photo hoarding",
+      "parents": [
+        "job-remember-past",
+        "job-avoid-loss"
+      ],
+      "layer": 3,
+      "description": "Keeping every shot, just in case.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-streak-keeping",
+      "label": "Streak keeping",
+      "parents": [
+        "job-gain-competence",
+        "job-get-ahead",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Unbroken daily chains as gamified discipline.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-inbox-zero",
+      "label": "Inbox zero",
+      "parents": [
+        "job-simplify",
+        "job-feel-in-control",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Email as a battle to be won daily.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-music-streaming",
+      "label": "Music streaming",
+      "parents": [
+        "job-be-entertained",
+        "job-escape",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Soundtracking every moment; playlists as mood control and identity.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-reading-books",
+      "label": "Reading books",
+      "parents": [
+        "job-be-entertained",
+        "job-gain-competence",
+        "job-escape"
+      ],
+      "layer": 3,
+      "description": "Long-form immersion in stories and ideas.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-book-clubs",
+      "label": "Book clubs",
+      "parents": [
+        "job-belong-tribe",
+        "job-connect",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Reading turned into scheduled community.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-content-creation",
+      "label": "Content creation",
+      "parents": [
+        "job-create",
+        "job-look-good",
+        "job-earn-income"
+      ],
+      "layer": 3,
+      "description": "Making videos, posts and streams for an audience (and income).",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-music-making",
+      "label": "Music making",
+      "parents": [
+        "job-create",
+        "job-express-identity",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Producing, playing and recording music as craft and voice.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-crafting",
+      "label": "Crafting & handmade hobbies",
+      "parents": [
+        "job-create",
+        "job-reduce-anxiety",
+        "job-gain-competence"
+      ],
+      "layer": 3,
+      "description": "Knitting, pottery, woodwork — hands busy, mind quiet.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-creative-writing",
+      "label": "Creative writing & fanfic",
+      "parents": [
+        "job-create",
+        "job-express-identity",
+        "job-escape"
+      ],
+      "layer": 3,
+      "description": "Building worlds and voices of one's own.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-open-source",
+      "label": "Open-source contributing",
+      "parents": [
+        "job-create",
+        "job-share-knowledge",
+        "job-belong-tribe"
+      ],
+      "layer": 3,
+      "description": "Building public software for craft, credit and community.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-sports-fandom",
+      "label": "Sports fandom",
+      "parents": [
+        "job-belong-tribe",
+        "job-be-entertained",
+        "job-connect"
+      ],
+      "layer": 3,
+      "description": "Following teams as inherited identity and shared ritual.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-fantasy-sports",
+      "label": "Fantasy sports",
+      "parents": [
+        "job-get-ahead",
+        "job-belong-tribe",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Managing imaginary rosters to beat friends.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-rec-leagues",
+      "label": "Recreational sports leagues",
+      "parents": [
+        "job-stay-healthy",
+        "job-connect",
+        "job-get-ahead"
+      ],
+      "layer": 3,
+      "description": "Weekly amateur competition with a social core.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-theme-parks",
+      "label": "Theme parks",
+      "parents": [
+        "job-seek-thrill",
+        "job-connect",
+        "job-be-entertained"
+      ],
+      "layer": 3,
+      "description": "Engineered thrills bought as family memory.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-camping-hiking",
+      "label": "Camping & hiking",
+      "parents": [
+        "job-experience-awe",
+        "job-recover-energy",
+        "job-escape",
+        "job-stay-healthy"
+      ],
+      "layer": 3,
+      "description": "Nature as reset, challenge and perspective.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-gifting",
+      "label": "Gift shopping",
+      "parents": [
+        "job-care-for-others",
+        "job-connect",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Objects as encoded affection and obligation.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-milestone-celebrations",
+      "label": "Milestone celebrations",
+      "parents": [
+        "job-remember-past",
+        "job-connect",
+        "job-look-good"
+      ],
+      "layer": 3,
+      "description": "Weddings, birthdays and graduations staged for memory and audience.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-quick-commerce",
+      "label": "10-minute delivery",
+      "parents": [
+        "job-save-time",
+        "job-reduce-effort",
+        "job-nourish"
+      ],
+      "layer": 3,
+      "description": "Instant fulfillment of small wants.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-reselling-flipping",
+      "label": "Reselling & flipping",
+      "parents": [
+        "job-earn-income",
+        "job-get-ahead",
+        "job-simplify"
+      ],
+      "layer": 3,
+      "description": "Turning clutter and arbitrage into cash.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-renting-sharing",
+      "label": "Renting over owning",
+      "parents": [
+        "job-save-money",
+        "job-reduce-effort",
+        "job-simplify"
+      ],
+      "layer": 3,
+      "description": "Access-economy substitutes for ownership.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-comparison-shopping",
+      "label": "Comparison shopping",
+      "parents": [
+        "job-decide-confidently",
+        "job-save-money",
+        "job-avoid-loss"
+      ],
+      "layer": 3,
+      "description": "Spreadsheeting options before committing.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-newsletters",
+      "label": "Newsletter subscriptions",
+      "parents": [
+        "job-stay-informed",
+        "job-gain-competence",
+        "job-simplify"
+      ],
+      "layer": 3,
+      "description": "Curated expertise delivered on a cadence.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-ai-search",
+      "label": "AI assistants & chat search",
+      "parents": [
+        "job-decide-confidently",
+        "job-save-time",
+        "job-gain-competence",
+        "job-stay-informed"
+      ],
+      "layer": 3,
+      "description": "Asking a model instead of searching, reading and synthesizing.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-telehealth",
+      "label": "Telehealth",
+      "parents": [
+        "job-stay-healthy",
+        "job-save-time",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Care without the waiting room.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-tax-software",
+      "label": "Tax & admin software",
+      "parents": [
+        "job-feel-in-control",
+        "job-avoid-loss",
+        "job-save-money"
+      ],
+      "layer": 3,
+      "description": "Turning dreaded paperwork into a guided flow.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-neighborhood-apps",
+      "label": "Neighborhood apps",
+      "parents": [
+        "job-feel-safe",
+        "job-belong-tribe",
+        "job-stay-informed"
+      ],
+      "layer": 3,
+      "description": "Hyperlocal watchfulness and belonging.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-kids-enrichment",
+      "label": "Kids' enrichment",
+      "parents": [
+        "job-care-for-others",
+        "job-gain-competence",
+        "job-get-ahead"
+      ],
+      "layer": 3,
+      "description": "Classes and edu-toys investing in children's futures.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-test-prep",
+      "label": "Test prep",
+      "parents": [
+        "job-gain-competence",
+        "job-get-ahead",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "High-stakes exam training.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-freelancing",
+      "label": "Freelancing platforms",
+      "parents": [
+        "job-earn-income",
+        "job-feel-in-control",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Selling skills directly, on one's own terms.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-asmr",
+      "label": "ASMR & sensory content",
+      "parents": [
+        "job-feel-pleasure",
+        "job-recover-energy",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Engineered tingles and calm through sound.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-home-fragrance",
+      "label": "Candles & home fragrance",
+      "parents": [
+        "job-feel-pleasure",
+        "job-express-identity",
+        "job-reduce-anxiety"
+      ],
+      "layer": 3,
+      "description": "Scent as atmosphere and self-soothing.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-spa-massage",
+      "label": "Spa & massage",
+      "parents": [
+        "job-feel-pleasure",
+        "job-recover-energy"
+      ],
+      "layer": 3,
+      "description": "Paid-for physical restoration.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-answering-forums",
+      "label": "Answering & editing online",
+      "parents": [
+        "job-share-knowledge",
+        "job-look-good",
+        "job-give-back"
+      ],
+      "layer": 3,
+      "description": "Stack Overflow answers, Wikipedia edits, expert threads.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-cycling",
+      "label": "Cycling",
+      "parents": [
+        "job-stay-healthy",
+        "job-save-money",
+        "job-express-identity"
+      ],
+      "layer": 3,
+      "description": "Two wheels as fitness, transport and tribe.",
+      "framework": "behavior"
+    }
+  ]
+}

@@ -9,18 +9,37 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "3d-force-graph": "^1.80.0",
     "next": "16.2.10",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "three-spritetext": "^1.10.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.185.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "Trace any product idea to the primal human desire it feeds — a procedural 3D tree of human motivation with AI-powered idea validation.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanky369/tree-of-desires.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "idea-validation",
+    "jobs-to-be-done",
+    "threejs",
+    "3d-force-graph",
+    "nextjs",
+    "psychology",
+    "data-visualization",
+    "openrouter"
+  ]
 }
