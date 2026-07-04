@@ -70,6 +70,7 @@ export default function Home() {
       result
         ? {
             path: result.path,
+            altPaths: result.altPaths ?? [],
             tempLabel: result.matchedBehaviorId ? null : result.newBehaviorLabel,
           }
         : null,

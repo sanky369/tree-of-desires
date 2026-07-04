@@ -117,7 +117,8 @@
       "label": "Curiosity",
       "layer": 1,
       "parents": [
-        "root-curiosity"
+        "root-curiosity",
+        "root-survival"
       ],
       "description": "Desire for knowledge, exploration and understanding.",
       "framework": "Reiss"
@@ -127,7 +128,8 @@
       "label": "Acceptance",
       "layer": 1,
       "parents": [
-        "root-belonging"
+        "root-belonging",
+        "root-safety"
       ],
       "description": "Desire for approval and to avoid criticism or rejection.",
       "framework": "Reiss"
@@ -398,7 +400,8 @@
       "label": "Save money",
       "layer": 2,
       "parents": [
-        "reiss-saving"
+        "reiss-saving",
+        "reiss-independence"
       ],
       "description": "Get the same value for less; keep more of what one earns.",
       "framework": "JTBD"
@@ -431,7 +434,8 @@
       "label": "Find a partner",
       "layer": 2,
       "parents": [
-        "reiss-romance"
+        "reiss-romance",
+        "reiss-social-contact"
       ],
       "description": "Meet, attract and choose a romantic or sexual partner.",
       "framework": "JTBD"
@@ -690,6 +694,41 @@
         "reiss-social-contact"
       ],
       "description": "Sync schedules, tasks and logistics across a household or team.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-maintain-bond",
+      "label": "Keep love alive",
+      "layer": 2,
+      "parents": [
+        "reiss-romance",
+        "reiss-family",
+        "reiss-social-contact"
+      ],
+      "description": "Sustain and deepen a long-term partnership — affection, ritual, repair.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-host-share-food",
+      "label": "Host & share meals",
+      "layer": 2,
+      "parents": [
+        "reiss-eating",
+        "reiss-social-contact"
+      ],
+      "description": "Feed people together — hosting and sharing food and drink as social glue.",
+      "framework": "JTBD"
+    },
+    {
+      "id": "job-right-wrongs",
+      "label": "Right wrongs & seek fairness",
+      "layer": 2,
+      "parents": [
+        "reiss-vengeance",
+        "reiss-honor",
+        "reiss-idealism"
+      ],
+      "description": "Correct injustice, settle scores, keep things fair and hold others accountable.",
       "framework": "JTBD"
     },
     {
@@ -2661,6 +2700,246 @@
       ],
       "layer": 3,
       "description": "Two wheels as fitness, transport and tribe.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-couples-apps",
+      "label": "Couples & relationship apps",
+      "layer": 3,
+      "parents": [
+        "job-maintain-bond",
+        "job-connect",
+        "job-gain-competence"
+      ],
+      "description": "Shared apps for partners — check-ins, love-language nudges, joint journals.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-date-nights",
+      "label": "Date-night rituals",
+      "layer": 3,
+      "parents": [
+        "job-maintain-bond",
+        "job-feel-pleasure",
+        "job-connect"
+      ],
+      "description": "Standing dinner-and-a-show rituals that keep long-term couples courting.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-weddings",
+      "label": "Weddings & proposals",
+      "layer": 3,
+      "parents": [
+        "job-maintain-bond",
+        "job-look-good",
+        "job-belong-tribe"
+      ],
+      "description": "Engagement and wedding spending as public commitment and status display.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-sexual-wellness",
+      "label": "Sexual-wellness products",
+      "layer": 3,
+      "parents": [
+        "job-feel-pleasure",
+        "job-maintain-bond",
+        "job-stay-healthy"
+      ],
+      "description": "Intimacy products and services moving from taboo shelf to wellness aisle.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-matchmaking",
+      "label": "Matchmaking & singles events",
+      "layer": 3,
+      "parents": [
+        "job-find-partner",
+        "job-connect",
+        "job-belong-tribe"
+      ],
+      "description": "Curated matchmaking, speed dating and IRL singles mixers.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-dating-coaching",
+      "label": "Dating coaching & profile services",
+      "layer": 3,
+      "parents": [
+        "job-find-partner",
+        "job-feel-attractive",
+        "job-gain-competence"
+      ],
+      "description": "Coaches, profile ghostwriters and photo shoots to improve dating odds.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-dinner-parties",
+      "label": "Dinner parties & supper clubs",
+      "layer": 3,
+      "parents": [
+        "job-host-share-food",
+        "job-connect",
+        "job-look-good"
+      ],
+      "description": "Hosting friends and strangers around a table, from potlucks to paid supper clubs.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-potluck-bbq",
+      "label": "Backyard BBQs & potlucks",
+      "layer": 3,
+      "parents": [
+        "job-host-share-food",
+        "job-belong-tribe",
+        "job-care-for-others"
+      ],
+      "description": "Informal communal cooking that binds families and neighborhoods.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-food-tourism",
+      "label": "Food tourism",
+      "layer": 3,
+      "parents": [
+        "job-nourish",
+        "job-experience-awe",
+        "job-be-entertained"
+      ],
+      "description": "Traveling for food — street-food crawls, wine regions, Michelin pilgrimages.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-review-writing",
+      "label": "Writing reviews & complaints",
+      "layer": 3,
+      "parents": [
+        "job-right-wrongs",
+        "job-share-knowledge",
+        "job-feel-in-control"
+      ],
+      "description": "One-star reviews, complaint threads and consumer-advocacy posts.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-callouts",
+      "label": "Call-outs & public shaming",
+      "layer": 3,
+      "parents": [
+        "job-right-wrongs",
+        "job-belong-tribe",
+        "job-look-good"
+      ],
+      "description": "Publicly naming bad actors — from brand callouts to quote-tweet pile-ons.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-shared-calendars",
+      "label": "Shared calendars & scheduling",
+      "layer": 3,
+      "parents": [
+        "job-coordinate",
+        "job-feel-in-control",
+        "job-care-for-others"
+      ],
+      "description": "Family calendars, polls and scheduling links that tame group logistics.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-bill-splitting",
+      "label": "Bill-splitting apps",
+      "layer": 3,
+      "parents": [
+        "job-coordinate",
+        "job-save-money",
+        "job-right-wrongs"
+      ],
+      "description": "Shared ledgers keeping money scrupulously fair between friends and roommates.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-reputation-monitoring",
+      "label": "Reputation monitoring & scrubbing",
+      "layer": 3,
+      "parents": [
+        "job-guard-reputation",
+        "job-avoid-loss",
+        "job-look-good"
+      ],
+      "description": "Googling yourself, deleting old posts, paying services to clean search results.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-anon-accounts",
+      "label": "Finstas & anonymous accounts",
+      "layer": 3,
+      "parents": [
+        "job-guard-reputation",
+        "job-express-identity",
+        "job-connect"
+      ],
+      "description": "Second, pseudonymous selves for honest posting without reputational risk.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-breathwork",
+      "label": "Breathwork & sound baths",
+      "layer": 3,
+      "parents": [
+        "job-transcend",
+        "job-reduce-anxiety",
+        "job-recover-energy"
+      ],
+      "description": "Guided breathing, gongs and frequencies as accessible altered states.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-psychedelic-wellness",
+      "label": "Psychedelic wellness",
+      "layer": 3,
+      "parents": [
+        "job-transcend",
+        "job-experience-awe",
+        "job-stay-healthy"
+      ],
+      "description": "Retreats, microdosing and therapy built around psychedelic experiences.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-memoir-writing",
+      "label": "Memoirs & life-story services",
+      "layer": 3,
+      "parents": [
+        "job-build-legacy",
+        "job-remember-past",
+        "job-create"
+      ],
+      "description": "Apps and ghostwriters that turn a parent's memories into a book.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-estate-planning",
+      "label": "Wills & estate planning",
+      "layer": 3,
+      "parents": [
+        "job-build-legacy",
+        "job-care-for-others",
+        "job-avoid-loss"
+      ],
+      "description": "Getting affairs in order so wealth and wishes outlive you.",
+      "framework": "behavior"
+    },
+    {
+      "id": "bx-tutorial-making",
+      "label": "Making tutorials & how-tos",
+      "layer": 3,
+      "parents": [
+        "job-share-knowledge",
+        "job-create",
+        "job-look-good"
+      ],
+      "description": "Publishing guides, walkthroughs and explainers for status and service.",
       "framework": "behavior"
     }
   ]

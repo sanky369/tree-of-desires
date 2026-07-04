@@ -3,6 +3,8 @@ import {
   nodesByLayer,
   nodeById,
   sanitizePath,
+  completeToRoot,
+  alternateRootPaths,
   type TraceResult,
 } from "@/lib/desires";
 
@@ -174,10 +176,32 @@ export async function POST(req: Request) {
 
   // Never trust the model's graph claims: keep only the longest prefix of the
   // path that follows real parent edges, then recompute the derived fields.
-  const path = sanitizePath(Array.isArray(parsed.path) ? parsed.path : []);
+  let path = sanitizePath(Array.isArray(parsed.path) ? parsed.path : []);
+
+  // Every ontology node structurally reaches a root, so a stalled path on an
+  // idea the model *judged* root-worthy can only be a hallucinated hop — not a
+  // property of the idea. Repair it along real edges (toward the model's
+  // claimed root when reachable). A deliberate reachedRoot=false is respected:
+  // that stall is the verdict, not an error.
+  let pathRepaired = false;
+  if (path.length > 0 && parsed.reachedRoot === true) {
+    const completed = completeToRoot(
+      path,
+      typeof parsed.rootDesireId === "string" ? parsed.rootDesireId : null,
+    );
+    path = completed.path;
+    pathRepaired = completed.repaired;
+  }
+
   const terminal = path.length ? nodeById.get(path[path.length - 1]) : undefined;
   const reachedRoot = terminal?.layer === 0;
   const rootDesireId = reachedRoot ? terminal!.id : null;
+
+  // Real behaviors are multi-parent by design, so most ideas feed more than
+  // one primal desire. Derive up to two alternate lineages (distinct roots)
+  // straight from the ontology — never from model output. Honest failures
+  // (reachedRoot=false) keep their red flag: no alternates are offered.
+  const altPaths = reachedRoot ? alternateRootPaths(path[0], path, 2) : [];
 
   const matchedBehaviorId =
     typeof parsed.matchedBehaviorId === "string" &&
@@ -199,6 +223,8 @@ export async function POST(req: Request) {
         ? parsed.newBehaviorLabel.trim()
         : null,
     path,
+    altPaths,
+    pathRepaired,
     rootDesireId,
     reachedRoot,
     rationale: typeof parsed.rationale === "string" ? parsed.rationale : "",

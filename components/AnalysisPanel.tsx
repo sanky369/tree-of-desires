@@ -79,7 +79,41 @@ export default function AnalysisPanel({ idea, result, onClose }: Props) {
         ) : (
           <p className="mt-2 text-xs text-slate-500">No traceable path was found.</p>
         )}
+        {result.pathRepaired && (
+          <p className="mt-2 text-[10px] text-slate-500">
+            ⚙ Path completed along real ontology edges where the AI&apos;s hops broke.
+          </p>
+        )}
       </div>
+
+      {result.altPaths.length > 0 && (
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Also feeds</p>
+          <div className="mt-2 space-y-2">
+            {result.altPaths.map((alt, row) => (
+              <div key={row} className="flex flex-wrap items-center gap-x-1 gap-y-1 text-[11px]">
+                {alt.map((id, i) => (
+                  <span key={`${id}-${i}`} className="flex items-center gap-1">
+                    <span
+                      className={`rounded-full border px-2 py-0.5 ${
+                        i === alt.length - 1
+                          ? "border-orange-400/30 bg-orange-400/5 text-orange-200/80"
+                          : "border-white/5 bg-white/[0.03] text-slate-400"
+                      }`}
+                    >
+                      {nodeById.get(id)?.label ?? id}
+                    </span>
+                    {i < alt.length - 1 && <span className="text-slate-700">→</span>}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p className="mt-1.5 text-[10px] leading-relaxed text-slate-600">
+            Secondary desire lineages from the same behavior — real edges, distinct roots.
+          </p>
+        </div>
+      )}
 
       <div className="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3">
         <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Verdict</p>

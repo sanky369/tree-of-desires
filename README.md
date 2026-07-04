@@ -11,13 +11,13 @@
 [![OpenRouter](https://img.shields.io/badge/AI-OpenRouter%20·%20gpt--5.4--mini-6467F2)](https://openrouter.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-<img src="docs/tree-idle.png" alt="The Tree of Desires — procedural 3D tree with 227 desire nodes" width="800" />
+<img src="docs/tree-idle.png" alt="The Tree of Desires — procedural 3D tree with 250 desire nodes" width="800" />
 
 </div>
 
 ---
 
-**Tree of Desires** is a mental-model and idea-validation tool — not a chatbot. It renders human motivation as a living, procedurally-generated 3D tree: **10 primal desires glow among the roots**, Reiss's **16 basic desires** sit at the trunk forks, **38 functional jobs** line the branches, and **163 observed modern behaviors** form the canopy. Type a startup / product / feature idea into the prompt bar and an AI traces it from the behavior it maps to, down through the branches, to the primal root it ultimately feeds.
+**Tree of Desires** is a mental-model and idea-validation tool — not a chatbot. It renders human motivation as a living, procedurally-generated 3D tree: **10 primal desires glow among the roots**, Reiss's **16 basic desires** sit at the trunk forks, **41 functional jobs** line the branches, and **183 observed modern behaviors** form the canopy. Type a startup / product / feature idea into the prompt bar and an AI traces it from the behavior it maps to, down through the branches, to the primal root it ultimately feeds.
 
 The core belief the tool encodes:
 
@@ -33,7 +33,8 @@ A failed trace — an idea with **no root desire anchor** — is surfaced as a f
 
 - 🌲 **Procedural 3D tree** — a seeded recursive branching algorithm grows the trunk, branches and a mirrored pale root system; every ontology node is pinned to a sampled point on the skeleton
 - 🔦 **Animated idea traces** — the matched path glows gold with flowing particles while the rest of the tree dims to a silhouette; the camera flies to a front-on framing of the path
-- 🧠 **Research-grounded ontology** — 227 nodes / 619 edges built on four published frameworks (see [The ontology](#-the-ontology))
+- 🧠 **Research-grounded ontology** — 250 nodes / 691 edges built on four published frameworks (see [The ontology](#-the-ontology))
+- 🔀 **Multi-lineage traces** — behaviors are multi-parent by design, so besides the primary gold path the tool derives up to two fainter alternate lineages to *different* primal roots, straight from the ontology (never from model output)
 - 📊 **Idea validation score** — four 0–25 subscores (root depth, directness, root strength, frequency) sum to a 0–100 verdict
 - 🌱 **Novel ideas still get placed** — if no existing behavior matches, the AI proposes a new leaf and grafts it onto the closest functional job
 - 🛡️ **Server-side AI only** — the API key never reaches the client; the model's graph claims are re-validated against the real ontology before anything renders
@@ -76,7 +77,7 @@ idea ──► POST /api/trace ──► OpenRouter (gpt-5.4-mini, JSON-schema o
 ```
 
 1. **The route** ([`app/api/trace/route.ts`](app/api/trace/route.ts)) sends the model the full node list grouped by layer plus the idea, and constrains the reply with **structured outputs** (`response_format: json_schema`) — no prose, no markdown fences by construction. The model id is a single constant (`MODEL`), so any OpenRouter model is a one-line swap.
-2. **Zero trust in the model's graph claims.** `sanitizePath()` keeps only the longest prefix of the returned path whose hops are real parent edges in the ontology, then recomputes `reachedRoot` and `rootDesireId`, clamps every subscore to 0–25 and re-sums the total. A hallucinated edge cannot fake a root anchor.
+2. **Zero trust in the model's graph claims.** `sanitizePath()` keeps only the longest prefix of the returned path whose hops are real parent edges in the ontology, then recomputes `reachedRoot` and `rootDesireId`, clamps every subscore to 0–25 and re-sums the total. A hallucinated edge cannot fake a root anchor. And because *every* real node provably reaches a root, a stalled path on an idea the model judged root-worthy can only be a hallucinated hop — `completeToRoot()` repairs it along real edges (a deliberate `reachedRoot=false` verdict is respected and never repaired). Up to two alternate lineages to distinct roots are then derived deterministically with `alternateRootPaths()`.
 3. **The tree** ([`components/DesireGraph.tsx`](components/DesireGraph.tsx)) is authored, not simulated: a seeded recursive algorithm generates a branch/root skeleton, and each node layer is pinned to its region — primal desires on root tips, basic desires at the lower forks, jobs mid-branch, behaviors on the terminal twigs. [3d-force-graph](https://github.com/vasturiano/3d-force-graph) renders the interactive node web on top, with `UnrealBloomPass` for the glow. Rendered client-side only (`next/dynamic`, `ssr: false`).
 
 ### Scoring (4 × 0–25 = 0–100)
@@ -90,14 +91,14 @@ idea ──► POST /api/trace ──► OpenRouter (gpt-5.4-mini, JSON-schema o
 
 ## 🌳 The ontology
 
-227 nodes / 619 edges in [`data/desires.json`](data/desires.json). Each node is `{ id, label, layer, parents, description, framework }`; edges derive from `parents` (parent → child). It's a **DAG, not a strict tree** — real behaviors are over-determined, so multi-parent links are intentional.
+250 nodes / 691 edges in [`data/desires.json`](data/desires.json). Each node is `{ id, label, layer, parents, description, framework }`; edges derive from `parents` (parent → child). It's a **DAG, not a strict tree** — real behaviors are over-determined, so multi-parent links are intentional.
 
 | Layer | Contents | Source |
 |---|---|---|
 | **0 — Primal roots** (10) | Life-Force 8: survival, food, safety, mating, comfort, kin care, belonging, status — plus two extensions: *curiosity & understanding*, *autonomy, control & competence* | Drew Eric Whitman, *Cashvertising*; cross-checked against Kenrick et al., *Fundamental Social Motives* |
 | **1 — Basic desires** (16) | Reiss's 16, names kept exactly: Power, Independence, Curiosity, Acceptance, Order, Saving, Honor, Idealism, Social Contact, Family, Status, Vengeance, Romance, Eating, Physical Activity, Tranquility | Steven Reiss, *Who Am I? The 16 Basic Desires* (empirically factor-derived) |
-| **2 — Functional jobs** (38) | Save time, reduce anxiety, look good, belong to a tribe, create & make, earn a living, escape, feel pleasure, choose confidently, guard reputation… | Christensen / Ulwick **Jobs-to-be-Done** (functional · emotional · social triad) |
-| **3 — Observed behaviors** (163) | Doomscrolling, sleep tech, AI copilots, status sneakers, gifting, sports fandom, content creation, thrifting, astrology apps… across 20+ life domains | Authors' compilation, coverage-checked against 2025-26 consumer-behavior research |
+| **2 — Functional jobs** (41) | Save time, reduce anxiety, look good, belong to a tribe, create & make, earn a living, escape, keep love alive, host & share meals, right wrongs… | Christensen / Ulwick **Jobs-to-be-Done** (functional · emotional · social triad) |
+| **3 — Observed behaviors** (183) | Doomscrolling, sleep tech, AI copilots, status sneakers, gifting, sports fandom, content creation, thrifting, astrology apps… across 20+ life domains | Authors' compilation, coverage-checked against 2025-26 consumer-behavior research |
 
 **Provenance, honestly:** layers 0–1 reproduce published psychology; layer 2 is shaped by the JTBD framework but has no canonical list; layer 3 and *all inter-layer edges* are the authors' interpretive synthesis (the two literatures were never bridged academically). Treat the skeleton as citable and the wiring as a hypothesis — full citations live in the `_meta` block of `desires.json`.
 

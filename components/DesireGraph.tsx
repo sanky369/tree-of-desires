@@ -8,6 +8,8 @@ import { nodes, links, type DesireNode } from "@/lib/desires";
 export interface GraphHighlight {
   /** Ordered node ids, behavior -> root (already validated server-side). */
   path: string[];
+  /** Alternate behavior -> root lineages (distinct roots), rendered fainter. */
+  altPaths: string[][];
   /** Label of a temporary leaf for novel ideas, attached to the first path node. */
   tempLabel: string | null;
 }
@@ -34,6 +36,7 @@ const DIM_NODE = "rgba(60,75,70,0.10)";
 const DIM_LINK = "rgba(120,220,170,0.02)";
 const BASE_LINK = "rgba(125,225,175,0.08)";
 const PATH_COLOR = "#ffd54a";
+const ALT_PATH_COLOR = "rgba(255,213,74,0.38)";
 const BG_COLOR = "#04120b";
 
 const linkKey = (l: GLink) => {
@@ -209,6 +212,8 @@ export default function DesireGraph({ highlight }: Props) {
   // Accessors read these refs so a highlight change only needs a re-style pass.
   const pathNodesRef = useRef<Set<string>>(new Set());
   const pathLinksRef = useRef<Set<string>>(new Set());
+  const altNodesRef = useRef<Set<string>>(new Set());
+  const altLinksRef = useRef<Set<string>>(new Set());
   const dimmedRef = useRef(false);
 
   useEffect(() => {
@@ -252,7 +257,7 @@ export default function DesireGraph({ highlight }: Props) {
         .nodeColor(nodeColor)
         .nodeLabel((n) => {
           // While a trace is highlighted, dimmed nodes are inert: no tooltip.
-          if (dimmedRef.current && !pathNodesRef.current.has(n.id)) return "";
+          if (dimmedRef.current && !pathNodesRef.current.has(n.id) && !altNodesRef.current.has(n.id)) return "";
           return `<div style="max-width:230px;padding:8px 11px;background:rgba(4,12,8,.94);border:1px solid rgba(255,255,255,.09);border-radius:10px;font-size:12px;line-height:1.45;color:#e7efe9;backdrop-filter:blur(6px)">
               <b style="font-weight:600">${esc(n.label)}</b>
               <div style="color:#93ac9e;margin-top:3px">${esc(n.description)}</div>
@@ -266,7 +271,11 @@ export default function DesireGraph({ highlight }: Props) {
           // highlighted, only labels on the path survive.
           const isRoot = n.layer === 0;
           if (!isRoot && n.id !== TEMP_ID) return false as unknown as Object3D;
-          if (dimmedRef.current && !pathNodesRef.current.has(n.id)) {
+          if (
+            dimmedRef.current &&
+            !pathNodesRef.current.has(n.id) &&
+            !altNodesRef.current.has(n.id)
+          ) {
             return false as unknown as Object3D;
           }
           const sprite = new SpriteText(n.label.toUpperCase());
@@ -287,9 +296,13 @@ export default function DesireGraph({ highlight }: Props) {
           return sprite;
         })
         .linkColor(linkColor)
-        .linkWidth((l) => (pathLinksRef.current.has(linkKey(l)) ? 1.4 : 0))
+        .linkWidth((l) =>
+          pathLinksRef.current.has(linkKey(l)) ? 1.4 : altLinksRef.current.has(linkKey(l)) ? 0.6 : 0,
+        )
         .linkOpacity(1)
-        .linkDirectionalParticles((l) => (pathLinksRef.current.has(linkKey(l)) ? 4 : 0))
+        .linkDirectionalParticles((l) =>
+          pathLinksRef.current.has(linkKey(l)) ? 4 : altLinksRef.current.has(linkKey(l)) ? 1 : 0,
+        )
         .linkDirectionalParticleWidth(2.2)
         .linkDirectionalParticleSpeed(0.008)
         .linkDirectionalParticleColor(() => PATH_COLOR);
@@ -397,10 +410,14 @@ export default function DesireGraph({ highlight }: Props) {
     function nodeColor(n: GNode): string {
       if (!dimmedRef.current) return LAYER_COLORS[n.layer] ?? "#7d8899";
       if (n.id === TEMP_ID) return PATH_COLOR;
-      return pathNodesRef.current.has(n.id) ? LAYER_COLORS[n.layer] : DIM_NODE;
+      if (pathNodesRef.current.has(n.id) || altNodesRef.current.has(n.id)) {
+        return LAYER_COLORS[n.layer];
+      }
+      return DIM_NODE;
     }
     function linkColor(l: GLink): string {
       if (pathLinksRef.current.has(linkKey(l))) return PATH_COLOR;
+      if (altLinksRef.current.has(linkKey(l))) return ALT_PATH_COLOR;
       return dimmedRef.current ? DIM_LINK : BASE_LINK;
     }
 
@@ -428,12 +445,24 @@ export default function DesireGraph({ highlight }: Props) {
 
     const pathNodes = new Set<string>();
     const pathLinks = new Set<string>();
+    const altNodes = new Set<string>();
+    const altLinks = new Set<string>();
 
     if (highlight && highlight.path.length > 0) {
       highlight.path.forEach((id) => pathNodes.add(id));
       // path is ordered behavior -> root; ontology edges point parent -> child.
       for (let i = 0; i < highlight.path.length - 1; i++) {
         pathLinks.add(`${highlight.path[i + 1]}->${highlight.path[i]}`);
+      }
+      // Alternate lineages glow fainter; the primary styling wins any overlap.
+      for (const alt of highlight.altPaths) {
+        alt.forEach((id) => {
+          if (!pathNodes.has(id)) altNodes.add(id);
+        });
+        for (let i = 0; i < alt.length - 1; i++) {
+          const key = `${alt[i + 1]}->${alt[i]}`;
+          if (!pathLinks.has(key)) altLinks.add(key);
+        }
       }
       if (highlight.tempLabel) {
         // A novel idea sprouts as a new twig just beyond its anchor job.
@@ -461,6 +490,8 @@ export default function DesireGraph({ highlight }: Props) {
 
     pathNodesRef.current = pathNodes;
     pathLinksRef.current = pathLinks;
+    altNodesRef.current = altNodes;
+    altLinksRef.current = altLinks;
     dimmedRef.current = pathNodes.size > 0;
 
     // Camera: hand control to the trace, give it back to the idle orbit on reset.
