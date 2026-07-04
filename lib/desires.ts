@@ -79,17 +79,23 @@ export function sanitizePath(path: string[]): string[] {
  * Shortest path (node ids, `fromId` first) from a node inward to a layer-0
  * root, following parent edges. BFS in declared parent order, so the result
  * is deterministic. When `preferRootId` is reachable it is targeted first;
- * otherwise the nearest root wins. Returns null only for unknown ids.
+ * otherwise the nearest root wins. Roots in `excludeRoots` are never used —
+ * the search continues past them to a different root. Returns null when no
+ * acceptable root is reachable or the id is unknown.
  */
-export function shortestRootPath(fromId: string, preferRootId?: string | null): string[] | null {
+export function shortestRootPath(
+  fromId: string,
+  preferRootId?: string | null,
+  excludeRoots?: ReadonlySet<string>,
+): string[] | null {
   const start = nodeById.get(fromId);
   if (!start) return null;
-  if (start.layer === 0) return [fromId];
+  if (start.layer === 0) return excludeRoots?.has(fromId) ? null : [fromId];
 
   const prev = new Map<string, string>(); // child in path -> its parent hop
   const queue: string[] = [fromId];
   const seen = new Set<string>([fromId]);
-  let fallback: string | null = null; // first (nearest) root found
+  let fallback: string | null = null; // first (nearest) acceptable root found
 
   while (queue.length > 0) {
     const id = queue.shift()!;
@@ -98,6 +104,7 @@ export function shortestRootPath(fromId: string, preferRootId?: string | null): 
       seen.add(p);
       prev.set(p, id);
       if (nodeById.get(p)!.layer === 0) {
+        if (excludeRoots?.has(p)) continue;
         if (!preferRootId || p === preferRootId) return unwind(p, prev, fromId);
         fallback ??= p;
         continue; // keep searching for the preferred root
@@ -150,21 +157,26 @@ export function alternateRootPaths(fromId: string, primary: string[], max = 2): 
   if (nodeById.get(primaryRoot)?.layer === 0) usedRoots.add(primaryRoot);
   const primaryFirstHop = primary.length > 1 && primary[0] === fromId ? primary[1] : null;
 
-  const candidates: string[][] = [];
-  for (const p of node.parents) {
-    if (p === primaryFirstHop || !nodeById.has(p)) continue;
-    const tail = shortestRootPath(p);
-    if (tail) candidates.push([fromId, ...tail]);
-  }
-  candidates.sort((a, b) => a.length - b.length);
-
+  // Greedy: each round, every unused parent branch searches for its shortest
+  // path to a root nobody has claimed yet (the BFS routes *around* used roots
+  // rather than discarding a branch whose nearest root is taken). Shortest
+  // wins the round, ties broken by declared parent order — deterministic.
+  const remaining = node.parents.filter((p) => p !== primaryFirstHop && nodeById.has(p));
   const out: string[][] = [];
-  for (const c of candidates) {
-    const root = c[c.length - 1];
-    if (usedRoots.has(root)) continue;
-    usedRoots.add(root);
-    out.push(c);
-    if (out.length >= max) break;
+  while (out.length < max && remaining.length > 0) {
+    let bestIdx = -1;
+    let bestTail: string[] | null = null;
+    for (let i = 0; i < remaining.length; i++) {
+      const tail = shortestRootPath(remaining[i], null, usedRoots);
+      if (tail && (!bestTail || tail.length < bestTail.length)) {
+        bestTail = tail;
+        bestIdx = i;
+      }
+    }
+    if (!bestTail) break;
+    usedRoots.add(bestTail[bestTail.length - 1]);
+    out.push([fromId, ...bestTail]);
+    remaining.splice(bestIdx, 1); // one lineage per parent keeps the alternates diverse
   }
   return out;
 }
